@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0-windows7.0</TargetFramework>
+    <Authors>Marlon D. Dumal-is</Authors>
+    <Company>EMDD</Company>
+    <Description>Collection of Extensions for generic C# for Windows</Description>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <PackageIcon>emd2.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/marlond18/EMDD.Kt.Extensions.git</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/marlond18/EMDD.Kt.Extensions.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>C#, Net5-Windows, Extensions</PackageTags>
+    <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>D:\Programming Work\EMDD.Kt.Extensions\build\Windows\bin\</OutputPath>
+    <DocumentationFile>D:\Programming Work\EMDD.Kt.Extensions\docs\EMDD.Kt.Extensions.Windows.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>D:\Programming Work\EMDD.Kt.Extensions\build\Windows\bin\</OutputPath>
+    <DocumentationFile>D:\Programming Work\EMDD.Kt.Extensions\docs\EMDD.Kt.Extensions.Windows.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Images\emd2.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
