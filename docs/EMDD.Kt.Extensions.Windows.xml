@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EMDD.Kt.Extensions.Windows</name>
+    </assembly>
+    <members>
+        <member name="T:KtExtensions.Windows.ThreadingExtensions">
+            <summary>
+            Extensions to Common Threading
+            </summary>
+        </member>
+        <member name="M:KtExtensions.Windows.ThreadingExtensions.RunThreadOnASTA(System.Action{System.Object})">
+            <summary>
+            Extension to use to solve STA problems on threading, example is on Clipboard operations like Copy Pasting
+            </summary>
+            <param name="action"></param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,2146 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EMDD.Kt.Extensions</name>
+    </assembly>
+    <members>
+        <member name="T:KtExtensions.Array2D">
+            <summary>
+            Collection of methods to deal with 2D array
+            </summary>
+        </member>
+        <member name="M:KtExtensions.Array2D.All``1(``0[0:,0:],System.Func{``0,System.Boolean})">
+            <summary>
+            All - Extension for 2D array
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="array"></param>
+            <param name="func"></param>
+            <exception cref="T:System.NullReferenceException">Method Cannot be null</exception>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.All``1(``0[0:,0:],System.Func{``0,System.Int32,System.Int32,System.Boolean})">
+            <summary>
+            All - Extension for 2D array
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="array"></param>
+            <param name="func"></param>
+            <exception cref="T:System.NullReferenceException">Method Cannot be null</exception>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.Size``1(``0[0:,0:])">
+            <summary>
+            Get the size of a two dimensional array, <paramref name="array"/>, of type <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="array"></param>
+            <returns><see cref="T:System.ValueTuple"/> of (<see cref="T:System.Int32"/> row, <see cref="T:System.Int32"/> col) </returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.HasAny``1(``0[0:,0:])">
+            <summary>
+            Check if a 2D array has data
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="matrix"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.IndexIsOutOfBound``1(``0[0:,0:],System.Int32,System.Int32)">
+            <summary>
+            Check if an index is out of bound from an array 2D
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="matrix"></param>
+            <param name="index"></param>
+            <param name="dimension"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.SelectRow``1(``0[0:,0:],System.Int32)">
+            <summary>
+            Get the row
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="matrix"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.ToDictionary``1(``0[0:,0:])">
+            <summary>
+            Convert Matrix to Dictionary
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="matrix"></param>
+            <returns>first row is the ket and the rest are stored on an array </returns>
+            <exception cref="T:System.IndexOutOfRangeException">Error for less than 2D Array</exception>
+        </member>
+        <member name="M:KtExtensions.Array2D.SelectRow``2(``1[0:,0:],System.Int32,System.Func{``1,``0})">
+            <summary>
+            Get row and apply some modifications
+            </summary>
+            <typeparam name="Tresult"></typeparam>
+            <typeparam name="Tbase"></typeparam>
+            <param name="matrix"></param>
+            <param name="index"></param>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.SelectCol``1(``0[0:,0:],System.Int32)">
+            <summary>
+            Get the col
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="matrix"></param>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.SelectCol``2(``1[0:,0:],System.Int32,System.Func{``1,``0})">
+            <summary>
+            Get col and apply some modifications
+            </summary>
+            <typeparam name="Tresult"></typeparam>
+            <typeparam name="Tbase"></typeparam>
+            <param name="matrix"></param>
+            <param name="index"></param>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.SelectRows``2(``0[0:,0:],System.Func{System.Collections.Generic.IEnumerable{``0},``1})">
+            <summary>
+            Cast the row of the two dimensional array using a function, <paramref name="func"/>
+            </summary>
+            <typeparam name="TBase"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <param name="array"></param>
+            <param name="func"></param>
+            <returns>The result is an <see cref="T:System.Collections.Generic.IEnumerable`1"/> </returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.SelectRows``3(``0[0:,0:],System.Func{``0,``1},System.Func{System.Collections.Generic.IEnumerable{``1},``2})">
+            <summary>
+            modify element in row, modify row and return as an ienumerable
+            </summary>
+            <typeparam name="TBase"></typeparam>
+            <typeparam name="TInnerResult"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <param name="array"></param>
+            <param name="InnerFunc"></param>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.SelectCols``2(``0[0:,0:],System.Func{System.Collections.Generic.IEnumerable{``0},``1})">
+            <summary>
+             Cast the column of the two dimensional array using a function, <paramref name="func"/>
+             </summary>
+             <typeparam name="TBase"></typeparam>
+             <typeparam name="TResult"></typeparam>
+             <param name="array"></param>
+             <param name="func"></param>
+             <returns>The result is an <see cref="T:System.Collections.Generic.IEnumerable`1"/> </returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.SelectCols``3(``0[0:,0:],System.Func{``0,``1},System.Func{System.Collections.Generic.IEnumerable{``1},``2})">
+            <summary>
+             Cast the column of the two dimensional array using a function, <paramref name="func"/>
+             </summary>
+             <typeparam name="TBase"></typeparam>
+             <typeparam name="TInnerResult"></typeparam>
+             <typeparam name="TResult"></typeparam>
+             <param name="array"></param>
+             <param name="InnerFunc"></param>
+             <param name="func"></param>
+             <returns>The result is an <see cref="T:System.Collections.Generic.IEnumerable`1"/> </returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.Select``2(``0[0:,0:],System.Func{``0,System.Int32,System.Int32,``1})">
+            <summary>
+            Loop Through a 2d array
+            </summary>
+            <param name="arr"></param>
+            <param name="func"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TQ"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.Select``2(``0[0:,0:],System.Func{``0,``1})">
+            <summary>
+            Loop Through a 2d array
+            </summary>
+            <param name="arr"></param>
+            <param name="func"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TQ"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.Aggregate``2(``0[0:,0:],``1,System.Func{``1,``0,System.Int32,System.Int32,``1})">
+            <summary>
+            Loop Through a 2d array
+            </summary>
+            <param name="arr"></param>
+            <param name="initial"></param>
+            <param name="func"></param>
+            <typeparam name="T">base</typeparam>
+            <typeparam name="TQ">target</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.Aggregate``2(``0[0:,0:],``1,System.Func{``1,``0,``1})">
+            <summary>
+            Loop Through a 2d array
+            </summary>
+            <param name="arr"></param>
+            <param name="initial"></param>
+            <param name="func"></param>
+            <typeparam name="T">base</typeparam>
+            <typeparam name="TQ">target</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.ForEach``1(``0[0:,0:],System.Action{``0,System.Int32,System.Int32})">
+            <summary>
+            Loop Through a 2d array without any returns
+            </summary>
+            <param name="arr"></param>
+            <param name="action"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.SequenceEqual``1(``0[0:,0:],``0[0:,0:])">
+            <summary>
+            Check if Two 2d array are equal
+            </summary>
+            <param name="arr1"></param>
+            <param name="arr2"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.DeleteRow``1(``0[0:,0:],System.Int64)">
+            <summary>
+            Delete the row of 2 dimensional array
+            </summary>
+            <param name="arr"></param>
+            <param name="index">index of the row</param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.DeleteRow``1(``0[0:,0:],System.Int64[])">
+            <summary>
+            Delete multiple row of a 2d Array
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="arr"></param>
+            <param name="indices"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.DeleteCol``1(``0[0:,0:],System.Int64[])">
+            <summary>
+            Delete multiple col of a 2d Array
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="arr"></param>
+            <param name="indices"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.DeleteCol``1(``0[0:,0:],System.Int64)">
+            <summary>
+            Delete the column of an array
+            </summary>
+            <param name="arr"></param>
+            <param name="index">index of column</param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.SwapRow``1(``0[0:,0:],System.Int64,System.Int64)">
+            <summary>
+            swap rows of a 2 dimensional matrix
+            </summary>
+            <param name="arr"></param>
+            <param name="index1">index of row 1</param>
+            <param name="index2">index of row 2</param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.SwapCol``1(``0[0:,0:],System.Int64,System.Int64)">
+            <summary>
+            swap columns of a 2 dimensional matrix
+            </summary>
+            <param name="arr"></param>
+            <param name="index1">index of column 1</param>
+            <param name="index2">index of column 2</param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.SwapRowInternal``1(``0[0:,0:],System.Int64,System.Int64)">
+            <summary>
+            swap rows of a 2 dimensional matrix
+            </summary>
+            <param name="arr"></param>
+            <param name="index1">index of row 1</param>
+            <param name="index2">index of row 2</param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.SwapColInternal``1(``0[0:,0:],System.Int64,System.Int64)">
+            <summary>
+            swap columns of a 2 dimensional matrix
+            </summary>
+            <param name="arr"></param>
+            <param name="index1">index of column 1</param>
+            <param name="index2">index of column 2</param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.TabbedToString``1(``0[0:,0:])">
+            <summary>
+            Convert the array in a tabulated string format
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="arr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.ToDictionary``2(System.Object[0:,0:],System.Object[0:,0:])">
+            <summary>
+            Tranform 2 Column Matrices into Dictionary
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="array1"></param>
+            <param name="array2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.ToDictionary``2(``0[0:,0:],``1[0:,0:])">
+            <summary>
+            ToDictionary with same return type
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="array1"></param>
+            <param name="array2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.ToDictionary``2(System.ValueTuple{``0[0:,0:],``1[0:,0:]})">
+            <summary>
+            Extension of type method of ToDictionary
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="arrays"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.ForEachRow``1(``0[0:,0:],System.Int32,System.Action{System.Int32,``0})">
+            <summary>
+            Call a ForEach Row method on Matrix
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="mat"></param>
+            <param name="colIndex">zero-based index</param>
+            <param name="action"></param>
+        </member>
+        <member name="M:KtExtensions.Array2D.ForEachCol``1(``0[0:,0:],System.Int32,System.Action{System.Int32,``0})">
+            <summary>
+            Call a Foreach Col method on Matrix
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="mat"></param>
+            <param name="rowIndex">zero-based index</param>
+            <param name="action"></param>
+        </member>
+        <member name="M:KtExtensions.Array2D.ForEachRow``2(``0[0:,0:],System.Int32,System.Func{System.Int32,``0,``1})">
+            <summary>
+            ForEach Row with return type
+            </summary>
+            <typeparam name="Tin"></typeparam>
+            <typeparam name="Tout"></typeparam>
+            <param name="mat"></param>
+            <param name="colIndex">zero-based</param>
+            <param name="func"></param>
+            <exception cref="T:System.ArgumentNullException"> func can't be null</exception>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.ForEachCol``2(``0[0:,0:],System.Int32,System.Func{System.Int32,``0,``1})">
+            <summary>
+            ForEach Col with return type
+            </summary>
+            <typeparam name="Tin"></typeparam>
+            <typeparam name="Tout"></typeparam>
+            <param name="mat"></param>
+            <param name="rowIndex">zero-based index</param>
+            <param name="func"></param>
+            <exception cref="T:System.ArgumentNullException"> func can't be null</exception>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.GetBounds``1(``0[0:,0:],System.Int32)">
+            <summary>
+            Get RowBounds
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="mat"></param>
+            <param name="dimension"></param>
+            <returns></returns>
+        </member>
+        <member name="T:KtExtensions.ArrayExtensions">
+            <summary>
+            extending the static methods of Array abstract class
+            </summary>
+        </member>
+        <member name="M:KtExtensions.ArrayExtensions.Find``1(``0[],System.Predicate{``0})">
+            <summary>
+            extending Find method in Array
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="array"></param>
+            <param name="match"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.ArrayExtensions.Add``1(``0[],``0)">
+            <summary>
+            Add an item to the existing array but creates a new array.
+            </summary>
+            <param name="arr"></param>
+            <param name="toAdd"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.ArrayExtensions.RemoveAt``1(``0[],System.Int32)">
+            <summary>
+            Array version of List.RemoveAt
+            </summary>
+            <param name="arr"></param>
+            <param name="index"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.NullReferenceException">throws exception if array is null</exception>
+            <exception cref="T:System.Exception">throws exception of array is of zero length</exception>
+        </member>
+        <member name="M:KtExtensions.ArrayExtensions.Clone``1(``0[])">
+            <summary>
+            Deep Clone a array
+            </summary>
+            <param name="arrayToClone"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:KtExtensions.BigIntegerExtensions">
+            <summary>
+            Extensions for BigInteger
+            </summary>
+        </member>
+        <member name="M:KtExtensions.BigIntegerExtensions.Factor(System.Numerics.BigInteger)">
+            <summary>
+            Exhaust All Factor of a BigInteger
+            </summary>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.BigIntegerExtensions.Sqrt(System.Numerics.BigInteger)">
+            <summary>
+            Get the Sqrt of BigInteger
+            </summary>
+            <param name="number"> </param>
+            <exception cref="T:System.ArgumentException">number cannot be less than zero</exception>
+        </member>
+        <member name="M:KtExtensions.BigIntegerExtensions.Root(System.Numerics.BigInteger,System.Int32)">
+            <summary>
+            Get the root of a BigInteger
+            </summary>
+            <param name="base"></param>
+            <param name="n"></param>
+            <exception cref="T:System.ArgumentException">root cannot be less than zero</exception>
+            <exception cref="T:System.ArgumentException">negative value root base 2</exception>
+        </member>
+        <member name="M:KtExtensions.BigIntegerExtensions.PerfectSqr(System.Numerics.BigInteger)">
+            <summary>
+            Determine if a number is perfect sqaure
+            </summary>
+            <param name="A"></param>
+        </member>
+        <member name="T:KtExtensions.CharExtensions">
+            <summary>
+            Extensions for Characters
+            </summary>
+        </member>
+        <member name="T:KtExtensions.CollectionEqComparerUnarranged`1">
+            <summary>
+            Comparer for Collection Unarranged
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:KtExtensions.CollectionEqComparerUnarranged`1.Equals(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Equality
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.CollectionEqComparerUnarranged`1.GetHashCode(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Hashcode
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:KtExtensions.DateExtensions">
+            <summary>
+            Extensions for dates
+            </summary>
+        </member>
+        <member name="M:KtExtensions.DateExtensions.IsBetweenDays(System.DateTime,System.DateTime,System.DateTime,System.Boolean)">
+            <summary>
+            Check if a date is between two spans ( excluding the time)
+            </summary>
+            <param name="current"></param>
+            <param name="start"></param>
+            <param name="end"></param>
+            <param name="excludeBounds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.DateExtensions.IsTimeSensitiveBetween(System.DateTime,System.DateTime,System.DateTime,System.Boolean)">
+            <summary>
+            Check if a date is between two spans ( including thee relevant time)
+            </summary>
+            <param name="current"></param>
+            <param name="start"></param>
+            <param name="end"></param>
+            <param name="excludeBounds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.DateExtensions.Months(System.DateTime)">
+            <summary>
+            Return the total months of a datetime
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.DateExtensions.Weeks(System.DateTime)">
+            <summary>
+            Get Total Weeks of a datetime
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.DateExtensions.StartOfWeek(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Get the start date of the week a datetime
+            </summary>
+            <param name="dt"></param>
+            <param name="startOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.DateExtensions.EndOfWeek(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Get the end date of the week of a datetime
+            </summary>
+            <param name="dt"></param>
+            <param name="endOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="T:KtExtensions.DiagnosticsExtensions">
+            <summary>
+            Extensions for Diagnostics
+            </summary>
+        </member>
+        <member name="M:KtExtensions.DiagnosticsExtensions.ElapsedTime(System.Action)">
+            <summary>
+            Get Elapsed time for action
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="T:KtExtensions.DoubleComparer">
+            <summary>
+            Compare double data type
+            </summary>
+        </member>
+        <member name="M:KtExtensions.DoubleComparer.Equals(System.Double,System.Double)">
+            <summary>Determines whether the specified objects are equal.</summary>
+            <returns>true if the specified objects are equal; otherwise, false.</returns>
+            <param name="x">The first object of type <paramref>
+                    <name>double</name>
+                </paramref>
+                to compare.</param>
+            <param name="y">The second object of type <paramref>
+                    <name>double</name>
+                </paramref>
+                to compare.</param>
+        </member>
+        <member name="M:KtExtensions.DoubleComparer.GetHashCode(System.Double)">
+            <summary>Returns a hash code for the specified object.</summary>
+            <returns>A hash code for the specified object.</returns>
+            <param name="obj">The <see cref="T:System.Object" /> for which a hash code is to be returned.</param>
+            <exception cref="T:System.ArgumentNullException">The type of <paramref name="obj" /> is a reference type and <paramref name="obj" /> is null.</exception>
+        </member>
+        <member name="T:KtExtensions.EnumerableExtensions">
+            <summary>
+            Extensions for Ienumerable
+            </summary>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.HeuristicallyDetermineType(System.Collections.IList)">
+            <summary>
+            Get the Underlaying type of items inside an Ilist
+            </summary>
+            <param name="myList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.FilterSuggestion(System.Collections.IEnumerable,System.String,System.String)">
+            <summary>
+            Use the whole word as suggestion
+            </summary>
+            <param name="items"></param>
+            <param name="keyword"></param>
+            <param name="propertyName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.FilterSuggestions(System.Collections.IEnumerable,System.String,System.String)">
+            <summary>
+            Search filter ienumerable
+            </summary>
+            <param name="items"></param>
+            <param name="keyword"></param>
+            <param name="propertyName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:KtExtensions.EnumerableExtensions.Ternary">
+             <summary>
+             3 boolean type
+             </summary>
+            
+        </member>
+        <member name="F:KtExtensions.EnumerableExtensions.Ternary.False">
+            <summary>
+            false
+            </summary>
+        </member>
+        <member name="F:KtExtensions.EnumerableExtensions.Ternary.Neutral">
+            <summary>
+            nuetral
+            </summary>
+        </member>
+        <member name="F:KtExtensions.EnumerableExtensions.Ternary.True">
+            <summary>
+            true
+            </summary>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.ContentEquals``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Determine if two collections have the same content
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.OfType``2(System.Collections.IEnumerable)">
+            <summary>
+            Ienumerable.OfType but takes two type signature
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="main"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.OfType``3(System.Collections.IEnumerable)">
+            <summary>
+            Ienumerable.OfType but takes three type signature
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <param name="main"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.OfType``4(System.Collections.IEnumerable)">
+            <summary>
+            Ienumerable.OfType but takes four type signature
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <param name="main"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.OfType``5(System.Collections.IEnumerable)">
+            <summary>
+            Ienumerable.OfType but takes five type signature
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <param name="main"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.OfType``6(System.Collections.IEnumerable)">
+            <summary>
+            Ienumerable.OfType but takes six type signature
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <param name="main"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.OfType``7(System.Collections.IEnumerable)">
+            <summary>
+            Ienumerable.OfType but takes 7 type signature
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <param name="main"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.OfType``8(System.Collections.IEnumerable)">
+            <summary>
+            Ienumerable.OfType but takes 8 type signature
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
+            <typeparam name="T5"></typeparam>
+            <typeparam name="T6"></typeparam>
+            <typeparam name="T7"></typeparam>
+            <typeparam name="T8"></typeparam>
+            <param name="main"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.AggregatePartition``4(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},``2,System.Func{``0,``3},System.Func{``3,``3,``3})">
+            <summary>
+            Partition collection and aggregate Results stored in a dictionary
+            </summary>
+            <typeparam name="TBase"></typeparam>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TComparer"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <param name="collection"></param>
+            <param name="getKey"></param>
+            <param name="comparer"></param>
+            <param name="getValue"></param>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.AggregatePartition``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2},System.Func{``2,``2,``2})">
+            <summary>
+            Partition collection and aggregate Results stored in a dictionary
+            </summary>
+            <typeparam name="TBase"></typeparam>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <param name="collection"></param>
+            <param name="getKey"></param>
+            <param name="getValue"></param>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.AggregatePartition``4(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2},System.Func{``2,``2,``2},System.Func{``1,``2,``3})">
+            <summary>
+            Partition collection and aggregate Results
+            </summary>
+            <typeparam name="TBase"></typeparam>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <param name="collection"></param>
+            <param name="getKey"></param>
+            <param name="getValue"></param>
+            <param name="func"></param>
+            <param name="getOutput"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.AggregatePartition``5(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},``2,System.Func{``0,``3},System.Func{``3,``3,``3},System.Func{``1,``3,``4})">
+            <summary>
+            Partition collection and aggregate Results
+            </summary>
+            <typeparam name="TBase"></typeparam>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TComparer"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <param name="collection"></param>
+            <param name="getKey"></param>
+            <param name="comparer"></param>
+            <param name="getValue"></param>
+            <param name="func"></param>
+            <param name="getOutput"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.MinMax``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,System.Boolean},System.Func{``0,``0,System.Boolean})">
+            <summary>
+            Get the minimum and maximum value of enumerable based on <paramref name="IsLesser"/> and <paramref name="IsGreater"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enumerable"></param>
+            <param name="IsLesser"> Check if a value is lesser that another</param>
+            <param name="IsGreater">Check if a value is greater that another</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.MinMax``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Double})">
+            <summary>
+            Determine where the min and max value of <typeparamref name="T"/> resulting to double, from an ienumerable <paramref name="enumerable"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enumerable"></param>
+            <param name="func"> function to convert the item <typeparamref name="T"/> to a <see cref="T:System.Double"/> </param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.MinMax``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Int32})">
+            <summary>
+            Determine where the min and max value of <typeparamref name="T"/> resulting to double, from an ienumerable <paramref name="enumerable"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enumerable"></param>
+            <param name="func"> function to convert the item <typeparamref name="T"/> to a <see cref="T:System.Int32"/> </param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.SelectPair``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0,``1})">
+            <summary>
+            IEnumerable Select But using successive pairs
+            </summary>
+            <param name="inum"></param>
+            <param name="method"></param>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TD"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.NullReferenceException">method cannot be null</exception>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.WhereNot``1(System.Collections.Generic.IEnumerable{``0},System.Predicate{``0})">
+            <summary>
+            same Linq -Where but the predicate is negated
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enumerable"></param>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.WhereNot``1(System.Collections.Generic.IEnumerable{``0},``0)">
+            <summary>
+            Exclude <paramref name="other"/> from the query
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enumerable"></param>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.WhereNot``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Exclude <paramref name="others"/> from the query
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enumerable"></param>
+            <param name="others"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.Partition``2(System.Collections.Generic.IEnumerable{``1},System.Func{``1,``0})">
+            <summary>
+            Partition
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="enumerable"></param>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.Concat``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0}[])">
+            <summary>
+            Extended Concat Method where the enumerable to be concatenated is params
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enumerable"></param>
+            <param name="toConCat"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.FirstOfBoth``2(System.ValueTuple{System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1}},System.Func{``0,``1,System.Boolean})">
+            <summary>
+            Get the first item on both enumerable that satifies the boolean function
+            </summary>
+            <typeparam name="Tfirst"></typeparam>
+            <typeparam name="Tsecond"></typeparam>
+            <param name="pair"></param>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.IsEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Check if a collection contains any data
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enumerable"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.AggregateSelect``2(System.Collections.Generic.IEnumerable{``0},``1,System.Func{``1,``0,``1})">
+            <summary>
+            Combined Aggregate and Select
+            </summary>
+            <typeparam name="TBase"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <param name="enumerable"></param>
+            <param name="seed"></param>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.SelectPair``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Return an ienumerable of a tuple paired for a successive items
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="inum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.Venn``1(System.ValueTuple{System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0}},System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Exclusion Inclusion of Elements of two collections
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="ienums"></param>
+            <param name="comparer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.Venn``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Venn Group Elements of two enumerables based on venn diagram rep
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="AA"></param>
+            <param name="BB"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.Fork``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Splits an ienumerable in two based on the boolean condition stated,
+            <para /> Reference:
+            <para /> Byers, M (2010,December 28) C#: Can I split an IEnumerable into two by a boolean criteria without two queries? [Online forum comment].Message to
+                   posted to https://stackoverflow.com/questions/4549339/can-i-split-an-ienumerable-into-two-by-a-boolean-criteria-without-two-queries
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="source">the Ienumerable to be split</param>
+            <param name="pred">boolean condition</param>
+            <returns>value tuple 2 two groups</returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.Fork``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,KtExtensions.EnumerableExtensions.Ternary})">
+            <summary>
+            Two way fork by using Ternary conditions
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="pred"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.SplitTake``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Divide an ienumerable into two; first value's size is based on Count.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.Has``1(System.Collections.Generic.IEnumerable{``0},``0)">
+            <summary>
+            Works like LInq Contains
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enumerable"></param>
+            <param name="itemToFind"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.MakeEnumerable``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            boxing of any enumerable to it's interface equivalence
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enumerable"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.SplitFirst``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Find First and split it from the main enumerable
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.AnyExcept``1(System.Collections.Generic.IEnumerable{``0},``0,System.Func{``0,System.Boolean})">
+            <summary>
+            Similar to Ienumerable.Any() but excludes checking a certain element
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="except">Excluded Element</param>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.Cross``3(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,``2})">
+            <summary>
+            Select + Select Many/ Nested Linq from - operator for two collections
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <param name="col1"></param>
+            <param name="col2"></param>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.ReverseSelect``2(``0[],System.Func{``0,``1})">
+             <summary>
+            Reverse Select an Array
+             </summary>
+             <typeparam name="TBase"></typeparam>
+             <typeparam name="TResult"></typeparam>
+             <param name="source"></param>
+             <param name="conversion"></param>
+             <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.ReverseSelect``2(``0[],System.Func{``0,``1},System.Func{``0,System.Boolean},System.Func{``0,System.Boolean})">
+             <summary>
+            Reverse Select an Array
+             </summary>
+             <typeparam name="TBase"></typeparam>
+             <typeparam name="TResult"></typeparam>
+             <param name="source"></param>
+             <param name="conversion"></param>
+             <param name="break"></param>
+             <param name="continue"></param>
+             <returns></returns>
+        </member>
+        <member name="T:KtExtensions.EqualityExtensions">
+            <summary>
+            Collection of methods for equality purposes
+            </summary>
+        </member>
+        <member name="M:KtExtensions.EqualityExtensions.ChainHashCode``1(System.Int32,``0,System.Int32)">
+            <summary>
+            Chain the hashcode of the new item to the previous
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="hash">initial hash</param>
+            <param name="other">other item</param>
+            <param name="multiplier"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EqualityExtensions.ChainHashCode``1(System.Int32,``0)">
+            <summary>
+            Chain the hashcode of the new item to the previous
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="hash">initial hash</param>
+            <param name="other">other item</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EqualityExtensions.ChainHashCode``1(System.Int32,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Chain the hashcode of the new item to the previous
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="hash">initial hash</param>
+            <param name="other">other item</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EqualityExtensions.ChainHashCode``1(System.Int32,``0[])">
+            <summary>
+            Chain the hashcode of the new item to the previous
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="hash">initial hash</param>
+            <param name="other">other item</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EqualityExtensions.GetHashCodeOfArray``1(``0[])">
+            <summary>
+            Determine the hashcode of an array using <see cref="M:KtExtensions.EqualityExtensions.ChainHashCode``1(System.Int32,``0)"/> method
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EqualityExtensions.GetHashCodeOfEnumerable``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Determine the hashcode of an enumerable using <see cref="M:KtExtensions.EqualityExtensions.ChainHashCode``1(System.Int32,``0)"/> method
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="array"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EqualityExtensions.DefaultEquals``1(``0,``0)">
+            <summary>
+            Shortened <see cref="P:System.Collections.Generic.EqualityComparer`1.Default"/>.Equals
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EqualityExtensions.TestNullBeforeEquals``1(``0,``0,System.Func{System.Boolean})">
+            <summary>
+            Test for null before doing the final equality check of final
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="final"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EqualityExtensions.EqualsObject``1(``0,System.Object,System.Func{``0,System.Boolean})">
+            <summary>
+            Test if an element of type <typeparamref name="T"/> is equal to an object
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="a"></param>
+            <param name="obj"></param>
+            <param name="final"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EqualityExtensions.TestNullBeforeEquals``1(``0,``0,System.Func{``0,System.Boolean})">
+            <summary>
+            Test for null before doing the final equality check of final
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="final"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EqualityExtensions.TestNullBeforeEquals``1(``0,``0,System.Boolean)">
+            <summary>
+            Test for null before doing the final equality check of final
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="final"></param>
+            <returns></returns>
+        </member>
+        <member name="T:KtExtensions.FilePathExtensions">
+            <summary>
+            Extensions for System.IO.File and System.IO.Path
+            </summary>
+        </member>
+        <member name="M:KtExtensions.FilePathExtensions.CopyToUniqueName(System.String,System.String)">
+            <summary>
+            extension of File.Copy where destination name will be made unique using <see cref="M:KtExtensions.FilePathExtensions.GetUniqueFilePath(System.String)"/>
+            </summary>
+            <param name="source"></param>
+            <param name="filePathDestination"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.FilePathExtensions.GetUniqueFilePath(System.String)">
+            <summary>
+            Make file path unique
+            </summary>
+            <param name="filepath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.FilePathExtensions.CanReadFile(System.String)">
+            <summary>
+            Check if a file can be opened
+            </summary>
+            <param name="filePath"></param>
+        </member>
+        <member name="T:KtExtensions.GenericExtensions">
+            <summary>
+            Extensions for generic types
+            </summary>
+        </member>
+        <member name="M:KtExtensions.GenericExtensions.MakeArrayFor``1(``0,System.Int32)">
+            <summary>
+            Create an Array using the value with "times" size
+            </summary>
+            <param name="val"></param>
+            <param name="times">size of the array</param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.GenericExtensions.MakeListFor``1(``0,System.Int32)">
+            <summary>
+            Create a List using the value with "times" size
+            </summary>
+            <param name="val"></param>
+            <param name="times">size of the list</param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.GenericExtensions.IsNull``1(``0)">
+            <summary>
+            Check if a generic value of type <typeparamref name="T"/> is null
+            Reference: McGivern, D. (2011,Febuary 10) C#: Alternative to GenericType == null [Online forum comment].Message to
+                            posted to https://stackoverflow.com/questions/565564/c-alternative-to-generictype-null
+            </summary>
+            modification was done by using IsNullable() Method
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:KtExtensions.ListExtensions">
+            <summary>
+            List Extensions
+            </summary>
+        </member>
+        <member name="M:KtExtensions.ListExtensions.Swap``1(System.Collections.Generic.List{``0},System.Int32,System.Int32)">
+            <summary>
+            swap elements of a List
+            </summary>
+            <param name="list"></param>
+            <param name="index1">index of row 1</param>
+            <param name="index2">index of row 2</param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.ListExtensions.IndexedForEach``1(System.Collections.Generic.List{``0},System.Action{``0,System.Int32})">
+            <summary>
+            Run for loop using <paramref name="action"/> which takes in <see cref="T:System.Int32"/> index and the item of <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="action">is null, the method will not run</param>
+        </member>
+        <member name="M:KtExtensions.ListExtensions.FoundAt``1(System.Collections.Generic.List{``0},``0,System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Find the Element and return its index
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="item"></param>
+            <param name="comparer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.ListExtensions.FoundAt``1(System.Collections.Generic.List{``0},``0)">
+            <summary>
+            Find the Element and return its index using the Default Equality Comparer
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.ListExtensions.Clone``1(System.Collections.Generic.List{``0})">
+            <summary>
+            Deep Clone a List
+            </summary>
+            <param name="listToClone"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.ListExtensions.LoopTwoEach``1(System.Collections.Generic.List{``0},System.Action{``0,``0})">
+            <summary>
+            Loop through a List using the two consecutive elements
+            </summary>
+            <param>
+                <name>listToLoop</name>
+            </param>
+            <param name="listToLoop">The list for looping, count must be beyond 2</param>
+            <param name="action"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:KtExtensions.ListExtensions.FirstPair``1(System.Collections.Generic.List{``0},System.Func{``0,``0,System.Boolean})">
+            <summary>
+            Determine the first pair in list that passed the test
+            </summary>
+            <param name="listToLoop"></param>
+            <param name="test"></param>
+            <typeparam name="T"></typeparam>
+            <returns>if fails it returns null</returns>
+        </member>
+        <member name="T:KtExtensions.MethodShortcuts">
+            <summary>
+            Improved Action methods
+            </summary>
+        </member>
+        <member name="M:KtExtensions.MethodShortcuts.BoolAction(System.Boolean,System.Action,System.Action)">
+            <summary>
+            Runs based on a the condition of <paramref name="condition"/>,
+            runs <paramref name="ifTrue"/> if <paramref name="condition"/> is true and
+            runs <paramref name="ifFalse"/> if <paramref name="condition"/> is false
+            </summary>
+            <param name="condition"></param>
+            <param name="ifTrue"></param>
+            <param name="ifFalse"></param>
+        </member>
+        <member name="M:KtExtensions.MethodShortcuts.SeedProcess``2(System.Func{``0},System.Func{``0,``1})">
+            <summary>
+            Chainable initial values to func
+            </summary>
+            <typeparam name="Tseed"></typeparam>
+            <typeparam name="Tresult"></typeparam>
+            <param name="seed"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.MethodShortcuts.SeedProcess``3(System.Func{``0},System.Func{``1},System.Func{``0,``1,``2})">
+            <summary>
+            Chainable initial values to func
+            </summary>
+            <typeparam name="Tseed1"></typeparam>
+            <typeparam name="Tseed2"></typeparam>
+            <typeparam name="Tresult"></typeparam>
+            <param name="seed1"></param>
+            <param name="seed2"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.MethodShortcuts.SeedProcess``4(System.Func{``0},System.Func{``1},System.Func{``2},System.Func{``0,``1,``2,``3})">
+            <summary>
+            Chainable initial values to func
+            </summary>
+            <typeparam name="Tseed1"></typeparam>
+            <typeparam name="Tseed2"></typeparam>
+            <typeparam name="Tseed3"></typeparam>
+            <typeparam name="Tresult"></typeparam>
+            <param name="seed1"></param>
+            <param name="seed2"></param>
+            <param name="seed3"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.MethodShortcuts.SeedProcess``5(System.Func{``0},System.Func{``1},System.Func{``2},System.Func{``3},System.Func{``0,``1,``2,``3,``4})">
+            <summary>
+            Chainable initial values to func
+            </summary>
+            <typeparam name="Tseed1"></typeparam>
+            <typeparam name="Tseed2"></typeparam>
+            <typeparam name="Tseed3"></typeparam>
+            <typeparam name="Tseed4"></typeparam>
+            <typeparam name="Tresult"></typeparam>
+            <param name="seed1"></param>
+            <param name="seed2"></param>
+            <param name="seed3"></param>
+            <param name="seed4"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.MethodShortcuts.SeedProcess``6(System.Func{``0},System.Func{``1},System.Func{``2},System.Func{``3},System.Func{``4},System.Func{``0,``1,``2,``3,``4,``5})">
+            <summary>
+            Chainable initial values to func: 5 seed elements
+            </summary>
+            <typeparam name="Tseed1"></typeparam>
+            <typeparam name="Tseed2"></typeparam>
+            <typeparam name="Tseed3"></typeparam>
+            <typeparam name="Tseed4"></typeparam>
+            <typeparam name="Tseed5"></typeparam>
+            <typeparam name="Tresult"></typeparam>
+            <param name="seed1"></param>
+            <param name="seed2"></param>
+            <param name="seed3"></param>
+            <param name="seed4"></param>
+            <param name="seed5"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.MethodShortcuts.SeedProcess``3(System.Func{System.ValueTuple{``0,``1}},System.Func{``0,``1,``2})">
+            <summary>
+            Chainable initial values to func
+            </summary>
+            <typeparam name="Tseed1"></typeparam>
+            <typeparam name="Tseed2"></typeparam>
+            <typeparam name="Tresult"></typeparam>
+            <param name="seed"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.MethodShortcuts.SeedProcess``4(System.Func{System.ValueTuple{``0,``1,``2}},System.Func{``0,``1,``2,``3})">
+            <summary>
+            Chainable initial values to func: Tuple of 3
+            </summary>
+            <typeparam name="Tseed1"></typeparam>
+            <typeparam name="Tseed2"></typeparam>
+            <typeparam name="Tseed3"></typeparam>
+            <typeparam name="Tresult"></typeparam>
+            <param name="seed"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.MethodShortcuts.SeedProcess``5(System.Func{System.ValueTuple{``0,``1,``2,``3}},System.Func{``0,``1,``2,``3,``4})">
+            <summary>
+            Chainable initial values to func: Tuple of 4
+            </summary>
+            <typeparam name="Tseed1"></typeparam>
+            <typeparam name="Tseed2"></typeparam>
+            <typeparam name="Tseed3"></typeparam>
+            <typeparam name="Tseed4"></typeparam>
+            <typeparam name="Tresult"></typeparam>
+            <param name="seed"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.MethodShortcuts.SeedProcess``6(System.Func{System.ValueTuple{``0,``1,``2,``3,``4}},System.Func{``0,``1,``2,``3,``4,``5})">
+            <summary>
+            Chainable initial values to func: Tuple of 5
+            </summary>
+            <typeparam name="Tseed1"></typeparam>
+            <typeparam name="Tseed2"></typeparam>
+            <typeparam name="Tseed3"></typeparam>
+            <typeparam name="Tseed4"></typeparam>
+            <typeparam name="Tseed5"></typeparam>
+            <typeparam name="Tresult"></typeparam>
+            <param name="seed"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.MethodShortcuts.SeedProcess``5(System.Func{System.ValueTuple{``0,``1}},System.Func{System.ValueTuple{``2,``3}},System.Func{``0,``1,``2,``3,``4})">
+            <summary>
+            Chainable initial values to func
+            </summary>
+            <typeparam name="Tseed1"></typeparam>
+            <typeparam name="Tseed2"></typeparam>
+            <typeparam name="Tseed3"></typeparam>
+            <typeparam name="Tseed4"></typeparam>
+            <typeparam name="Tresult"></typeparam>
+            <param name="seed1"></param>
+            <param name="seed2"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.MethodShortcuts.Recursion``1(System.Func{System.Func{``0},``0})">
+            <summary>
+            Inception type of function. create a value null, assign a value
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="T:KtExtensions.NumberDisplayExtensions">
+            <summary>
+            Extensions for converting numeric values to proper string format
+            </summary>
+        </member>
+        <member name="M:KtExtensions.NumberDisplayExtensions.ToExp(System.Double)">
+            <summary>
+            Convert a number into string exponential form string
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="T:KtExtensions.NumericExtensions">
+            <summary>
+            Numeric Extensions
+            </summary>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.IsEven(System.Int32)">
+            <summary>
+            Determine if an integer is Even
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.NoFloat(System.Double,System.Int32)">
+            <summary>
+            Check if a double value is an integer
+            </summary>
+            <param name="val"></param>
+            <param name="precision"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.CompareTo(System.ValueTuple{System.Double,System.Double})">
+            <summary>
+            (v1,v2) => v1.CompareTo(v2)
+            </summary>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.Atan3(System.Double,System.Double)">
+            <summary>
+                Return the angle in degrees
+            </summary>
+            <param name="y">numerator of the tangent function</param>
+            <param name="x">denominator of the tangent function</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.CycleWithin(System.Double,System.Double,System.Double)">
+            <summary>
+            Used for looping through circular sequence
+            </summary>
+            <param name="val1">The Number that loops</param>
+            <param name="val2">The Begining of the loop</param>
+            <param name="val3">The end of the loop</param>
+            <returns>Looped equivalent of val1</returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.MinMax(System.Int32,System.Int32)">
+            <summary>
+            determine the min or max of two integers
+            </summary>
+            <param name="val1"></param>
+            <param name="val2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.MinMax(System.Double,System.Double)">
+            <summary>
+            determine the min or max of two doubles
+            </summary>
+            <param name="val1"></param>
+            <param name="val2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.CycleWithin(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Used for looping through circular sequence
+            </summary>
+            <param name="val1">The Number that loops</param>
+            <param name="val2">The Begining of the loop</param>
+            <param name="val3">The end of the loop</param>
+            <returns>Looped equivalent of val1</returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.InvalidNumber(System.Double)">
+            <summary>
+            check if a number is infinity or NaN
+            </summary>
+            <param name="val">the value to be tested</param>
+            <returns>Boolean value</returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.IsNumeric(System.String)">
+            <summary>
+            Determine if a string can be converted into a number, Similar VB.net IsNumeric Function
+            </summary>
+            <param name="val">The string to be tested</param>
+            <returns>Boolean Value</returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.ScientificNotation(System.Double)">
+            <summary>
+            Return the scientific notation
+            </summary>
+            <param name="val">todo: describe val parameter on ScientificNotation</param>
+            <returns>return a tuple of significant figure in 1's and the base 10 exponent </returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.Base10Of1stSignificantFigure(System.Double)">
+            <summary>
+            get the decimal place of first significant figure
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.IsWithin(System.Double,System.Double,System.Double)">
+            <summary>
+            Test if a number is inside or exactly on the limits
+            </summary>
+            <param name="val1"></param>
+            <param name="val2">Limit 1</param>
+            <param name="val3">Limit 2</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.IsWithin(System.Double,System.ValueTuple{System.Double,System.Double})">
+            <summary>
+            Test if a number is inside or exactly on the limits
+            </summary>
+            <param name="val1"></param>
+            <param name="limits"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.IsBetween(System.Double,System.Double,System.Double)">
+            <summary>
+            Test if a number is inside but should not be on the limits
+            </summary>
+            <param name="val1"></param>
+            <param name="val2">Limit 1</param>
+            <param name="val3">Limit 2</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.IsWithin(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Test if a number is inside or exactly on the limits
+            </summary>
+            <param name="val1"></param>
+            <param name="val2">Limit 1</param>
+            <param name="val3">Limit 2</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.IsWithin(System.Int32,System.ValueTuple{System.Int32,System.Int32})">
+            <summary>
+            Test if a number is inside or exactly on the limits
+            </summary>
+            <param name="val1"></param>
+            <param name="limits"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.IsBetween(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Test if a number is inside but should not be on the limits
+            </summary>
+            <param name="val1"></param>
+            <param name="val2">Limit 1</param>
+            <param name="val3">Limit 2</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.IsBetween(System.Int64,System.Int64,System.Int64)">
+            <summary>
+            Test if a number is inside but should not be on the limits
+            </summary>
+            <param name="val1"></param>
+            <param name="val2">Limit 1</param>
+            <param name="val3">Limit 2</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.LimitWithin(System.Double,System.Double,System.Double)">
+            <summary>
+            Make a value stay within the limits (Including the limits themselves)
+            </summary>
+            <param name="val1"></param>
+            <param name="val2">Limit 1</param>
+            <param name="val3">Limit </param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.LimitWithin(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Make a value stay within the limits (Including the limits themselves)
+            </summary>
+            <param name="val1"></param>
+            <param name="val2">Limit 1</param>
+            <param name="val3">Limit </param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.LimitWithin(System.Int64,System.Int64,System.Int64)">
+            <summary>
+            Make a value stay within the limits (Including the limits themselves)
+            </summary>
+            <param name="val1"></param>
+            <param name="val2">Limit 1</param>
+            <param name="val3">Limit </param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.NearZero(System.Double,System.Int32)">
+            <summary>
+            Determine if a double number is almost equal to zero
+            </summary>
+            <param name="val"></param>
+            <param name="accuracy">accuracy to the n'th degree</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.RaiseTo(System.Double,System.Int32)">
+            <summary>
+            Acts like an exponent/power
+            </summary>
+            <param name="val1"></param>
+            <param name="val2">exponent</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.NearEqual(System.Double,System.Double,System.Int32)">
+            <summary>
+            Check if a number is Approximately Equal to the other
+            </summary>
+            <param name="val1"></param>
+            <param name="val2"></param>
+            <param name="accuracy"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.Exp(System.Double,System.Int32)">
+            <summary>
+            multiply a number with 10 raised to ____
+            </summary>
+            <param name="val1"></param>
+            <param name="val2">Power of th multiplyier number "10"</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.Roundby(System.Double,System.Int32)">
+            <summary>
+            Round for every interval
+            </summary>
+            <param name="val1"></param>
+            <param name="val2">interval</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.Roundby(System.Double,System.Double)">
+            <summary>
+            Round for every interval
+            </summary>
+            <param name="val1"></param>
+            <param name="val2">interval</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.RoundDownby(System.Double,System.Int32)">
+            <summary>
+            Round down for every interval
+            </summary>
+            <param name="val1"></param>
+            <param name="val2">interval</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.RoundDownby(System.Double,System.Double)">
+            <summary>
+            Round down for every interval
+            </summary>
+            <param name="val1"></param>
+            <param name="val2">interval</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.RoundUpby(System.Double,System.Int32)">
+            <summary>
+            Roundup for every interval
+            </summary>
+            <param name="val1"></param>
+            <param name="val2">interval</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.RoundUpby(System.Double,System.Double)">
+            <summary>
+            Roundup for every interval
+            </summary>
+            <param name="val1"></param>
+            <param name="val2">interval</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.Exp(System.Double,System.Double)">
+            <summary>
+            multiply a number with 10 raised to ____
+            </summary>
+            <param name="val1"></param>
+            <param name="val2">Power of th multiplyier number "10"</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.RaiseTo(System.Double,System.Double)">
+            <summary>
+            Acts like an exponent/power
+            </summary>
+            <param name="val1"></param>
+            <param name="val2">exponent</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.RaiseTo(System.Int32,System.Int32)">
+            <summary>
+            Acts like an exponent/power
+            </summary>
+            <param name="val1"></param>
+            <param name="val2">exponent</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.RaiseTo(System.Int32,System.Double)">
+            <summary>
+            Acts like an exponent/power
+            </summary>
+            <param name="val1"></param>
+            <param name="val2">exponent</param>
+            <returns></returns>
+        </member>
+        <member name="T:KtExtensions.NumericExtensions.NumberSign">
+            <summary>
+            Numeric Enumeration
+            </summary>
+        </member>
+        <member name="F:KtExtensions.NumericExtensions.NumberSign.Negative">
+            <summary>
+            Less that 0
+            </summary>
+        </member>
+        <member name="F:KtExtensions.NumericExtensions.NumberSign.Neutral">
+            <summary>
+            Exactly Zero
+            </summary>
+        </member>
+        <member name="F:KtExtensions.NumericExtensions.NumberSign.Positive">
+            <summary>
+            Greater than 0
+            </summary>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.Sign(System.Int32)">
+            <summary>
+            Determine the sign of a number
+            </summary>
+            <param name="num"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.SmartToString(System.Double)">
+            <summary>
+            Desirable tostring of a double data type
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.Sign(System.Double,System.Int32)">
+            <summary>
+            Determine the sign of a number
+            </summary>
+            <param name="num"></param>
+            <param name="accuracy"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.ToDouble(System.String)">
+            <summary>
+            Convert a  string to a number, if the string is not numeric then the return value will be zero
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.HasDecimal(System.String)">
+            <summary>
+            Check if string is a number and has float values.
+            </summary>
+            <param name="val">string to check</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.HasDecimal(System.Double)">
+            <summary>
+            Return if a double value has floating values
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.GetPotentialNumber(System.String)">
+            <summary>
+            Check if a string can potentially be converted into number
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.SmartRoundSignificantValue(System.Double,System.Int64[])">
+            <summary>
+            Round The number by finding the first repeated digits from the number;
+            </summary>
+            <param name="val"></param>
+            <param name="digits">digits that are repeated</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.SmartRoundActual(System.Double,System.Int64[])">
+             <summary>
+            Round the value based on the repeated 999's and 000's
+             </summary>
+             <param name="val"></param>
+             <param name="digits"></param>
+             <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.IntToArray(System.Int64)">
+            <summary>
+            Convert an integer to an array of single digits
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NumericExtensions.Store15DecimalsToArray(System.Double)">
+            <summary>
+            Make 15 decimals to array
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="T:KtExtensions.Partition`2">
+            <summary>
+            Grouping of Ienumerable
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+        </member>
+        <member name="M:KtExtensions.Partition`2.#ctor">
+            <summary>
+            base Constructor
+            </summary>
+        </member>
+        <member name="M:KtExtensions.Partition`2.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="P:KtExtensions.Partition`2.Item(`0)">
+            <summary>
+            Create Partition
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Partition`2.Add(`0,System.Collections.Generic.List{`1})">
+            <summary>
+            Add a partition
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:KtExtensions.Partition`2.Add(`0,`1)">
+            <summary>
+            Add Individual Element
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:KtExtensions.Partition`2.Remove(`0)">
+            <summary>
+            Remove a partition
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="T:KtExtensions.ReflectionExtensions">
+            <summary>
+            Reflection extensions
+            </summary>
+        </member>
+        <member name="M:KtExtensions.ReflectionExtensions.GetPropertyValues(System.Object)">
+            <summary>
+            Search all property names, get their values, and store them into a dictionary of string/object generic type
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.ReflectionExtensions.GetPropertyValues``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Search all property names, get their values, and store them into a dictionary of string/object generic type
+            </summary>
+            <param name="objs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.ReflectionExtensions.GetPropertyValue(System.Object,System.String)">
+            <summary>
+            The the value of the runtime property of name <paramref name="pName"/>
+            </summary>
+            <param name="o"></param>
+            <param name="pName"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:KtExtensions.ReflectionExtensions.GetCascadedPropertyValue(System.Object,System.String[])">
+            <summary>
+            Get the property value cascaded to its subproperties
+            </summary>
+            <param name="o"></param>
+            <param name="pNames"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.ReflectionExtensions.GetCascadedPropertyValue(System.Object,System.String)">
+            <summary>
+            Get the property value cascaded to its subproperties
+            </summary>
+            <param name="o"></param>
+            <param name="name"></param>
+        </member>
+        <member name="M:KtExtensions.ReflectionExtensions.GetPropertyValue``1(System.Object,System.String)">
+            <summary>
+            Get the value of Property and cast it to it's proper type
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <param name="propertyName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.ReflectionExtensions.PropertyValueString(System.Object,System.String)">
+            <summary>
+            Get value of object
+            </summary>
+            <param name="o"></param>
+            <param name="pName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:KtExtensions.StringManipulation">
+            <summary>
+            String extensions
+            </summary>
+        </member>
+        <member name="M:KtExtensions.StringManipulation.IsNullOrEmpty(System.String)">
+            <summary>
+            Similar to <see cref="M:System.String.IsNullOrEmpty(System.String)"/>
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.StringManipulation.AppendThenNewLine(System.Text.StringBuilder,System.String)">
+            <summary>
+            Append A string then add new line
+            </summary>
+            <param name="sb"></param>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.StringManipulation.AppendWhen(System.Text.StringBuilder,System.String,System.Func{System.Boolean})">
+            <summary>
+            Append A string then when
+            </summary>
+            <param name="sb"></param>
+            <param name="str"></param>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.StringManipulation.AppendNewLine(System.Text.StringBuilder)">
+            <summary>
+            Append new line to the string builder
+            </summary>
+            <param name="sb"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.StringManipulation.BuildString``1(System.Collections.Generic.IEnumerable{``0},System.String,System.ValueTuple{System.String,System.String})">
+            <summary>
+            Concatenate all the element <see  cref="M:System.Object.ToString"/> value of an enumerable
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enumerable"></param>
+            <param name="separator">String separating each string</param>
+            <param name="enclosure">strings enclosing the element string</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.StringManipulation.BuildString``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Concatenate all the element <see  cref="M:System.Object.ToString"/> value of an enumerable
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enumerable"></param>
+            <param name="separator">String separating each string</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.StringManipulation.RepeatString(System.String,System.Int32)">
+            <summary>
+            Concatenate a repeat string at a number of times
+            </summary>
+            <param name="str">the string to be repeated</param>
+            <param name="count">number of times to repeat</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.StringManipulation.RemoveLastChar(System.String)">
+            <summary>
+            Remove the last letter of the string
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.StringManipulation.Has(System.String,System.String[])">
+            <summary>
+            Determine if a character is inside a list of strings
+            </summary>
+            <param name="this"></param>
+            <param name="possibles"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.StringManipulation.Has(System.String,System.Char[])">
+            <summary>
+            Determine if a character is inside a list of characters
+            </summary>
+            <param name="this"></param>
+            <param name="possibles"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.StringManipulation.FirstCharacterToLower(System.String)">
+            <summary>
+            Make First Letter of a string into lower character
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.StringManipulation.FirstCharacterToUpper(System.String)">
+            <summary>
+            Make First Letter of a string into upper character
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.StringManipulation.RemoveVowels(System.String)">
+            <summary>
+            Remove Vowels from strings
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.StringManipulation.SmartPrepend(System.String,System.String)">
+            <summary>
+            Be able identify if it is good to prepend a text to the main text
+            <para/>if str is null or empty then an empty text is returned
+            </summary>
+            <param name="str"></param>
+            <param name="strToPrepend"></param>
+        </member>
+        <member name="M:KtExtensions.StringManipulation.SmartAppend(System.String,System.String)">
+            <summary>
+            Be able identify if it is good to append a text to the main text
+            <para/>if str is null or empty then an empty text is returned
+            </summary>
+            <param name="str"></param>
+            <param name="strToAppend"></param>
+        </member>
+        <member name="M:KtExtensions.StringManipulation.SmartConcat(System.String,System.String,System.String)">
+            <summary>
+            Concat Two strings with a filler
+            </summary>
+            <param name="str1"></param>
+            <param name="str2"></param>
+            <param name="filler"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.StringManipulation.SmartConcat(System.String,System.String[],System.String)">
+            <summary>
+            Concat strings with filler
+            </summary>
+            <param name="str"></param>
+            <param name="toConcat"></param>
+            <param name="filler"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.StringManipulation.SplitTextAndNumber(System.String)">
+            <summary>
+            Separate String and Number, example "text (1)" the text and the number will be extracted
+            </summary>
+            <param name="text"></param>
+            <returns> text and a number, "text (1)" return "text " and "1" </returns>
+        </member>
+        <member name="M:KtExtensions.StringManipulation.MakeUniqueFrom(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Check if string is a duplicate and create new numbered string
+            </summary>
+            <param name="str"></param>
+            <param name="strs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.StringManipulation.MakeUniqueFrom(System.String,System.Collections.Generic.IEnumerable{System.String},System.Int32)">
+            <summary>
+            Check if string is a duplicate and create new numbered string
+            </summary>
+            <param name="str"></param>
+            <param name="strs"></param>
+            <param name="maxLength"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.StringManipulation.GuardClausedEquals(System.String,System.String)">
+            <summary>
+            Guard Claused Equals
+            </summary>
+            <param name="str1"></param>
+            <param name="str2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.StringManipulation.GuardClausedEquals(System.String,System.String,System.StringComparison)">
+            <summary>
+            Guard Claused Equals w/ string comparison
+            </summary>
+            <param name="str1"></param>
+            <param name="str2"></param>
+            <param name="stringComparison"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.StringManipulation.ToWords(System.Int32)">
+            <summary>
+            Convert integers to words
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="T:KtExtensions.TypesExtensions">
+            <summary>
+            Extensions for type
+            </summary>
+        </member>
+        <member name="M:KtExtensions.TypesExtensions.IsNullable(System.Type)">
+            <summary>
+            Determine if a generic param is a Nullable type
+            Reference: Traub, D. (2011, March 3). Determine if a generic param is a Nullable type [Online forum comment]. Message
+                            posted to https://stackoverflow.com/questions/5181494/determine-if-a-generic-param-is-a-nullable-type
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.TypesExtensions.IsDerivedFromOpenGenericType(System.Type,System.Type)">
+            <summary>
+            Determine if a type is derived from open generic type
+            Reference: KallDrexx (2011, June 21). How can I use reflection to return all classes subclassing from a generic, without giving a specific generic type [Online forum comment]. Message
+                            posted to https://stackoverflow.com/questions/6426949/how-can-i-use-reflection-to-return-all-classes-subclassing-from-a-generic-witho/6427201#6427201
+            </summary>
+            <param name="type"></param>
+            <param name="openGenericType"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:KtExtensions.TypesExtensions.GetTypeHierarchy(System.Type)">
+            <summary>
+            Get all type derivation
+            Reference: KallDrexx (2011, June 21). How can I use reflection to return all classes subclassing from a generic, without giving a specific generic type [Online forum comment]. Message
+                            posted to https://stackoverflow.com/questions/6426949/how-can-i-use-reflection-to-return-all-classes-subclassing-from-a-generic-witho/6427201#6427201
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

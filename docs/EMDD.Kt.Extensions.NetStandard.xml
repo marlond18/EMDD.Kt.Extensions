@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EMDD.Kt.Extensions.NetStandard</name>
+    </assembly>
+    <members>
+        <member name="T:KtExtensions.NetStandard.SimplifiedFileStream">
+            <summary>
+            File streaming
+            </summary>
+        </member>
+        <member name="M:KtExtensions.NetStandard.SimplifiedFileStream.WriteFileXML``1(System.String,``0)">
+            <summary>
+            Write File XML
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="filePath"></param>
+            <param name="element"></param>
+        </member>
+        <member name="M:KtExtensions.NetStandard.SimplifiedFileStream.ReadFileXml``1(System.String)">
+            <summary>
+            Read XML File
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="filePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NetStandard.SimplifiedFileStream.ReadFileBinary``2(System.String,System.Func{``0,``1})">
+            <summary>
+            Read File
+            </summary>
+            <typeparam name="TStreamOut"></typeparam>
+            <typeparam name="TResult"></typeparam>
+            <param name="filePath"></param>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NetStandard.SimplifiedFileStream.ReadFileBinary``1(System.String,System.Action{``0})">
+            <summary>
+            Read File
+            </summary>
+            <typeparam name="TStreamOut"></typeparam>
+            <param name="filePath"></param>
+            <param name="act"></param>
+        </member>
+        <member name="M:KtExtensions.NetStandard.SimplifiedFileStream.ReadFileBinary``2(System.String,``0@,``1@)">
+            <summary>
+            Read File
+            </summary>
+            <typeparam name="TStreamOut1"></typeparam>
+            <typeparam name="TStreamOut2"></typeparam>
+            <param name="filePath"></param>
+            <param name="r1"></param>
+            <param name="r2"></param>
+        </member>
+        <member name="M:KtExtensions.NetStandard.SimplifiedFileStream.ReadFileBinary``3(System.String,``0@,``1@,``2@)">
+            <summary>
+            Read File
+            </summary>
+            <typeparam name="TStreamOut1"></typeparam>
+            <typeparam name="TStreamOut2"></typeparam>
+            <typeparam name="TStreamOut3"></typeparam>
+            <param name="filePath"></param>
+            <param name="r1"></param>
+            <param name="r2"></param>
+            <param name="r3"></param>
+        </member>
+        <member name="M:KtExtensions.NetStandard.SimplifiedFileStream.ReadFileBinary``4(System.String,``0@,``1@,``2@,``3@)">
+            <summary>
+            Read File
+            </summary>
+            <typeparam name="TStreamOut1"></typeparam>
+            <typeparam name="TStreamOut2"></typeparam>
+            <typeparam name="TStreamOut3"></typeparam>
+            <typeparam name="TStreamOut4"></typeparam>
+            <param name="filePath"></param>
+            <param name="r1"></param>
+            <param name="r2"></param>
+            <param name="r3"></param>
+            <param name="r4"></param>
+        </member>
+        <member name="M:KtExtensions.NetStandard.SimplifiedFileStream.ReadFileBinary``5(System.String,``0@,``1@,``2@,``3@,``4@)">
+            <summary>
+            Read File
+            </summary>
+            <typeparam name="TStreamOut1"></typeparam>
+            <typeparam name="TStreamOut2"></typeparam>
+            <typeparam name="TStreamOut3"></typeparam>
+            <typeparam name="TStreamOut4"></typeparam>
+            <typeparam name="TStreamOut5"></typeparam>
+            <param name="filePath"></param>
+            <param name="r1"></param>
+            <param name="r2"></param>
+            <param name="r3"></param>
+            <param name="r4"></param>
+            <param name="r5"></param>
+        </member>
+        <member name="M:KtExtensions.NetStandard.SimplifiedFileStream.ReadFileBinary``6(System.String,``0@,``1@,``2@,``3@,``4@,``5@)">
+            <summary>
+            Read File
+            </summary>
+            <typeparam name="TStreamOut1"></typeparam>
+            <typeparam name="TStreamOut2"></typeparam>
+            <typeparam name="TStreamOut3"></typeparam>
+            <typeparam name="TStreamOut4"></typeparam>
+            <typeparam name="TStreamOut5"></typeparam>
+            <typeparam name="TStreamOut6"></typeparam>
+            <param name="filePath"></param>
+            <param name="r1"></param>
+            <param name="r2"></param>
+            <param name="r3"></param>
+            <param name="r4"></param>
+            <param name="r5"></param>
+            <param name="r6"></param>
+        </member>
+        <member name="M:KtExtensions.NetStandard.SimplifiedFileStream.ReadFileBinary``7(System.String,``0@,``1@,``2@,``3@,``4@,``5@,``6@)">
+            <summary>
+            Read File
+            </summary>
+            <typeparam name="TStreamOut1"></typeparam>
+            <typeparam name="TStreamOut2"></typeparam>
+            <typeparam name="TStreamOut3"></typeparam>
+            <typeparam name="TStreamOut4"></typeparam>
+            <typeparam name="TStreamOut5"></typeparam>
+            <typeparam name="TStreamOut6"></typeparam>
+            <typeparam name="TStreamOut7"></typeparam>
+            <param name="filePath"></param>
+            <param name="r1"></param>
+            <param name="r2"></param>
+            <param name="r3"></param>
+            <param name="r4"></param>
+            <param name="r5"></param>
+            <param name="r6"></param>
+            <param name="r7"></param>
+        </member>
+        <member name="M:KtExtensions.NetStandard.SimplifiedFileStream.WriteFileBinary``1(System.String,``0)">
+            <summary>
+            Write File
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="filePath"></param>
+            <param name="element"></param>
+        </member>
+        <member name="M:KtExtensions.NetStandard.SimplifiedFileStream.WriteFileBinary(System.String,System.Object[])">
+            <summary>
+            Serialize Objects into a single filename
+            </summary>
+            <param name="filePath"></param>
+            <param name="elements"></param>
+        </member>
+    </members>
+</doc>
