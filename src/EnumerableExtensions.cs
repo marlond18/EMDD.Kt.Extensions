@@ -936,11 +936,9 @@ namespace KtExtensions
             //todo: not yet done
             for (int i = source.Length - 1; i >= 0; i--)
             {
-#pragma warning disable IDE0059 // Unnecessary assignment of a value
-                var digit = source[i];
-#pragma warning restore IDE0059 // Unnecessary assignment of a value
-                               //stack.Push(digit);
-                               //stack.Push(conversion(source[i]));
+                _ = source[i];
+                //stack.Push(digit);
+                //stack.Push(conversion(source[i]));
             }
             return stack.ToArray();
         }
