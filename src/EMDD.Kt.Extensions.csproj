@@ -8,8 +8,8 @@
     <Description>Collection of Extensions for generic C#</Description>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>1.0.0.0</Version>
-    <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
+    <Version>1.0.0.1</Version>
+    <PackageReleaseNotes>Added Few more Methods on Array2D, EnumerableExtensions and ArrayExtensions</PackageReleaseNotes>
     <LangVersion>9.0</LangVersion>
     <Copyright></Copyright>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
