@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace KtExtensions
 {
@@ -9,6 +10,183 @@ namespace KtExtensions
     /// </summary>
     public static class Array2D
     {
+        /// <summary>
+        /// Aggregate Method but using the diagonal
+        /// </summary>
+        /// <typeparam name="TOriginal"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="mat"></param>
+        /// <param name="seed"></param>
+        /// <param name="func"></param>
+        /// <returns></returns>
+        public static T AggregateDiagonal<TOriginal, T>(this TOriginal[,] mat, T seed, Func<T, TOriginal, int, T> func)
+        {
+            var current = seed;
+            var length = mat.GetLength(0);
+            for (int i = 0; i < length; i++)
+            {
+                current = func(current, mat[i, i], i);
+            }
+            return current;
+        }
+
+        /// <summary>
+        /// Convert to a string that can be used in code
+        /// </summary>
+        /// <param name="actual"></param>
+        /// <param name="name">The name of the variable</param>
+        /// <returns></returns>
+        public static string ConvertToCodeString(this double[,] actual, string name)
+        {
+            var str = new StringBuilder();
+            str.Append("var ").Append(name).Append("= new double[,]{").Append('\n');
+            str.Append(actual.SelectRows((row) => $"{{{row.Select(s => s.SmartToString()).BuildString(",\t")}}},").BuildString("\n")).Append('\n');
+            str.Append("};").Append('\n');
+            return str.ToString();
+        }
+
+        /// <summary>
+        /// Map <paramref name="source"/> to <paramref name="target"/> using the <paramref name="lambda"/> and <paramref name="indices"/>
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="target"></param>
+        /// <param name="lambda">the map function, parameters are current source value, current target value </param>
+        /// <param name="indices">collection of the 1 based map indices</param>
+        public static void MapTo(this double[,] source, double[,] target, Func<double, double, double> lambda, int[] indices)
+        {
+            var (r1, c1) = source.Size();
+
+            for (int i = 0; i < r1; i++)
+            {
+                var i1 = indices[i] - 1;
+                if (i1 >= 0)
+                {
+                    for (int j = 0; j < c1; j++)
+                    {
+                        var j1 = indices[j] - 1;
+                        if (j1 >= 0)
+                        {
+                            target[i1, j1] = lambda(source[i, j], target[i1, j1]);
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Generate Matrix Using a Function
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="lambda"></param>
+        /// <param name="rowCount"></param>
+        /// <param name="colCount"></param>
+        /// <exception cref="ArgumentNullException"><paramref name="lambda"/> cannot be null</exception>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="rowCount"/> and <paramref name="colCount"/> must be greater than zero</exception>
+        public static T[,] GenerateMatrix<T>(Func<int, int, T> lambda, int rowCount, int colCount)
+        {
+            if (lambda is null) throw new ArgumentNullException(nameof(lambda), "function  cannot be null");
+            if (rowCount <= 0) throw new ArgumentOutOfRangeException(nameof(rowCount), "rowCount is invalid");
+            if (colCount <= 0) throw new ArgumentOutOfRangeException(nameof(colCount), "colCount is invalid");
+            var mat = new T[rowCount, colCount];
+            for (int i = 0; i < rowCount; i++)
+            {
+                for (int j = 0; j < colCount; j++)
+                {
+                    mat[i, j] = lambda(i, j);
+                }
+            }
+            return mat;
+        }
+
+        /// <summary>
+        /// Create a Diagonal Matrix Based on Function
+        /// </summary>
+        /// <param name="lambda"></param>
+        /// <param name="size"> size of the square matrix</param>
+        /// <exception cref="ArgumentNullException"><paramref name="lambda"/> function cannot be null</exception>
+        /// <exception cref="ArgumentOutOfRangeException"><paramref name="size"/> must be greater than zero</exception>
+        public static T[,] GenerateDiagonalMatrix<T>(Func<int, int, T> lambda, int size)
+        {
+            if (lambda is null) throw new ArgumentNullException(nameof(lambda), "function  cannot be null");
+            if (size <= 0) throw new ArgumentOutOfRangeException(nameof(size), "size is invalid");
+            var mat = new T[size, size];
+            for (int i = 0; i < size; i++)
+            {
+                mat[i, i] = lambda(i, i);
+                if (i + 1 < size)
+                {
+                    for (int j = i + 1; j < size; j++)
+                    {
+                        mat[i, j] = lambda(i, j);
+                        mat[j, i] = mat[i, j];
+                    }
+                }
+            }
+            return mat;
+        }
+
+        /// <summary>
+        /// Create A Diagonal Matrix Based using <paramref name="arr"/> as the diagonal values
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="arr"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"><paramref name="arr"/> cannot be null</exception>
+        public static T[,] CreateDiagonalMat<T>(this T[] arr)
+        {
+            if (arr is null) throw new ArgumentNullException(nameof(arr), "array cannot be null");
+            var l = arr.Length;
+            var mat = new T[l, l];
+            for (int i = 0; i < l; i++)
+            {
+                mat[i, i] = arr[i];
+            }
+            return mat;
+        }
+
+        /// <summary>
+        /// Convert a 2D matrix into an array (sequence is per row)
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="mat"></param>
+        /// <exception cref="ArgumentNullException"><paramref name="mat"/> cannot be null</exception>
+        public static T[] Flatten<T>(this T[,] mat)
+        {
+            if (mat is null) throw new ArgumentNullException(nameof(mat), "mat cannot be null");
+            var (r, c) = mat.Size();
+            var arr = new T[r + c];
+            for (int i = 0; i < r; i++)
+            {
+                var lev = i * c;
+                for (int j = 0; j < c; j++)
+                {
+                    arr[lev + j] = mat[i, j];
+                }
+            }
+            return arr;
+        }
+
+        /// <summary>
+        /// Convert a 2D matrix into an array (sequence is per column)
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="mat"></param>
+        /// <exception cref="ArgumentNullException"><paramref name="mat"/> cannot be null</exception>
+        public static T[] FlattenByCol<T>(this T[,] mat)
+        {
+            if (mat is null) throw new ArgumentNullException(nameof(mat), "mat cannot be null");
+            var (r, c) = mat.Size();
+            var newTs = new T[r * c];
+            for (int j = 0; j < c; j++)
+            {
+                for (int i = 0; i < r; i++)
+                {
+                    newTs[(j * r) + i] = mat[i, j];
+                }
+            }
+            return newTs;
+        }
+
         /// <summary>
         /// All - Extension for 2D array
         /// </summary>
