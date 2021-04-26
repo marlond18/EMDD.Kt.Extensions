@@ -11,6 +11,70 @@ namespace KtExtensions
     public static class EnumerableExtensions
     {
         /// <summary>
+        /// This is a method to Partition a <paramref name="collection"/> into two separate collections, using 2 filter functions
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="collection"></param>
+        /// <param name="filterFirst">first filter function</param>
+        /// <param name="filterSecond">second filter function</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"><paramref name="filterFirst"/> must not be null</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="filterSecond"/> must not be null</exception>
+        public static (IEnumerable<T> first, IEnumerable<T> second) Partition<T>(this IEnumerable<T> collection, Func<T, bool> filterFirst, Func<T, bool> filterSecond)
+        {
+            if (filterFirst is null) throw new ArgumentNullException(nameof(filterFirst), "function FilterFirst must not be null");
+            if (filterSecond is null) throw new ArgumentNullException(nameof(filterSecond), "function FilterSecond must not be null");
+            var listFirst = new List<T>();
+            var listDecond = new List<T>();
+            if (collection is null) return (listFirst, listDecond);
+            foreach (var item in collection)
+            {
+                if (filterFirst(item)) listFirst.Add(item);
+                if (filterSecond(item)) listDecond.Add(item);
+            }
+            return (listFirst, listDecond);
+        }
+
+        /// <summary>
+        /// Get the minimum value of <paramref name="arr"/>> that is not zero
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <returns></returns>
+        public static int MinNotZero(this IEnumerable<int> arr)
+        {
+            var min = 0;
+            foreach (var item in arr)
+            {
+                if (min == 0)
+                {
+                    if (item > 0) min = item;
+                }
+                else
+                {
+                    if (item > 0 && item < min) min = item;
+                }
+            }
+            return min;
+        }
+
+        /// <summary>
+        /// Get the Minimum and Maximum within <paramref name="arr"/> disregarding zero
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <returns></returns>
+        public static (int min, int max) GetMinMaxNotZero(this IEnumerable<int> arr)
+        {
+            var (min, max) = (0, 0);
+            foreach (var item in arr)
+            {
+                if (min > item && (item > 0)) min = item;
+
+                if (max < item) max = item;
+            }
+            return (min, max);
+        }
+
+        /// <summary>
         /// Get the Underlaying type of items inside an Ilist
         /// </summary>
         /// <param name="myList"></param>
@@ -664,6 +728,29 @@ namespace KtExtensions
         /// <param name="pred">boolean condition</param>
         /// <returns>value tuple 2 two groups</returns>
         public static (IEnumerable<T> matches, IEnumerable<T> nonMatches) Fork<T>(this IEnumerable<T> source, Func<T, bool> pred)
+        {
+            var listTrue = new List<T>();
+            var listFalse = new List<T>();
+            if (pred == null) throw new NullReferenceException("The Predicate is missing");
+            foreach (var item in source)
+            {
+                if (pred(item)) listTrue.Add(item);
+                else listFalse.Add(item);
+            }
+            return (listTrue, listFalse);
+        }
+
+        /// <summary>
+        /// Splits <paramref name="source"/> in two, based on the boolean condition stated
+        /// <para /> Reference:
+        /// <para /> Byers, M (2010,December 28) C#: Can I split an IEnumerable into two by a boolean criteria without two queries? [Online forum comment].Message to
+        ///        posted to https://stackoverflow.com/questions/4549339/can-i-split-an-ienumerable-into-two-by-a-boolean-criteria-without-two-queries
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="source">the Ienumerable to be split</param>
+        /// <param name="pred">boolean condition</param>
+        /// <returns>value tuple 2 two groups</returns>
+        public static (List<T> matches, List<T> nonMatches) ForkToList<T>(this List<T> source, Func<T, bool> pred)
         {
             var listTrue = new List<T>();
             var listFalse = new List<T>();
