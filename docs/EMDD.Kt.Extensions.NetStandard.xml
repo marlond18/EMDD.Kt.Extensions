@@ -69,6 +69,13 @@
             <param name="func"></param>
             <returns></returns>
         </member>
+        <member name="M:KtExtensions.NetStandard.SimplifiedFileStream.ReadFileBinary``1(System.String)">
+            <summary>
+            Read binary file into an object of <typeparamref name="TResult"/>
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="filePath"></param>
+        </member>
         <member name="M:KtExtensions.NetStandard.SimplifiedFileStream.ReadFileBinary``1(System.String,System.Action{``0})">
             <summary>
             Read File

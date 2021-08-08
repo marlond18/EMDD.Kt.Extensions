@@ -145,6 +145,23 @@ namespace KtExtensions.NetStandard
         }
 
         /// <summary>
+        /// Read binary file into an object of <typeparamref name="TResult"/>
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="filePath"></param>
+        public static TResult ReadFileBinary<TResult>(string filePath)
+        {
+            if (filePath == null) return default;
+            IFormatter formatter = new BinaryFormatter();
+            using Stream stream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
+            if (formatter.Deserialize(stream) is TResult result)
+            {
+                return result;
+            }
+            return default;
+        }
+
+        /// <summary>
         /// Read File
         /// </summary>
         /// <typeparam name="TStreamOut"></typeparam>

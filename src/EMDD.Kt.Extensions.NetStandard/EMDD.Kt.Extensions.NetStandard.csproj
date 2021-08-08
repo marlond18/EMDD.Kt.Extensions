@@ -13,8 +13,8 @@
     <RepositoryUrl>https://github.com/marlond18/Kt.Extensions.git</RepositoryUrl>
     <PackageTags>C#, NetStandard, Extensions</PackageTags>
     <RepositoryType>git</RepositoryType>
-    <PackageReleaseNotes>Added CSV Read/Write</PackageReleaseNotes>
-    <Version>1.0.1</Version>
+    <PackageReleaseNotes>Added ReadFileBinary that returns type directly</PackageReleaseNotes>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
