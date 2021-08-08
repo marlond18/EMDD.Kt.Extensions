@@ -184,7 +184,7 @@ Call a ForEach Row method on Matrix
 | colIndex | *0:]*<br>zero-based index |
 | action | *System.Int32*<br> |
 
-### ForEachRow\`\`2(mat, colIndex, func)
+### ForEachRow<Tin,Tout>(mat, colIndex, func)
 
 ForEach Row with return type
 
@@ -256,7 +256,7 @@ Check if an index is out of bound from an array 2D
 
 
 
-### Select\`\`2(arr, func)
+### Select<T,TQ>(arr, func)
 
 Loop Through a 2d array
 
@@ -274,7 +274,7 @@ Loop Through a 2d array
 
 
 
-### Select\`\`2(arr, func)
+### Select<T,TQ>(arr, func)
 
 Loop Through a 2d array
 
@@ -309,7 +309,7 @@ Get the col
 
 
 
-### SelectCol\`\`2(matrix, index, func)
+### SelectCol<Tresult,Tbase>(matrix, index, func)
 
 Get col and apply some modifications
 
@@ -328,7 +328,7 @@ Get col and apply some modifications
 
 
 
-### SelectCols\`\`2(array, func)
+### SelectCols<TBase,TResult>(array, func)
 
 Cast the column of the two dimensional array using a function, func
 
@@ -346,7 +346,7 @@ Cast the column of the two dimensional array using a function, func
 
 The result is an <a href="#system.collections.generic.ienumerable\`1">System.Collections.Generic.IEnumerable\`1</a>
 
-### SelectCols\`\`3(array, InnerFunc, func)
+### SelectCols<TBase,TInnnerResult,TResult>(array, InnerFunc, func)
 
 Cast the column of the two dimensional array using a function, func
 
