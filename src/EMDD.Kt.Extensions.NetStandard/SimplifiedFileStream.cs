@@ -1,5 +1,11 @@
-﻿using System;
+﻿using CsvHelper;
+using CsvHelper.Configuration;
+
+using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Serialization;
@@ -11,6 +17,75 @@ namespace KtExtensions.NetStandard
     /// </summary>
     public static class SimplifiedFileStream
     {
+        /// <summary>
+        /// Write CSV file
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="filePath"></param>
+        /// <param name="elements"></param>
+        public static bool WriteFileCSV<T>(string filePath, IEnumerable<T> elements)
+        {
+            using (var writer = new StreamWriter(filePath))
+            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            {
+                csv.WriteRecords(elements);
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Add item to the CSV file
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="path"></param>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static bool AppendFileCSV<T>(string path, IEnumerable<T> obj)
+        {
+            var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+            {
+                HasHeaderRecord = false,
+            };
+            using (var stream = File.Open(path, FileMode.Append))
+            using (var writer = new StreamWriter(stream))
+            using (var csv = new CsvWriter(writer, config))
+            {
+                csv.WriteRecords(obj);
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Write CSV File using <see cref="ClassMap{TClass}"/>
+        /// </summary>
+        /// <typeparam name="TMap"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="path"></param>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static bool WriteFileCSV<TMap, T>(string path, IEnumerable<T> obj) where TMap : ClassMap<T>
+        {
+            using (StreamWriter writer = new(path))
+            using (CsvWriter csv = new(writer, CultureInfo.InvariantCulture))
+            {
+                _ = csv.Context.RegisterClassMap<TMap>();
+                csv.WriteRecords(obj);
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Read a CSV file
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="path"></param>
+        public static IEnumerable<T> ReadFileCSV<T>(string path)
+        {
+            using var reader = new StreamReader(path);
+            using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+            return csv.GetRecords<T>().ToList();
+        }
+
         /// <summary>
         /// Write File XML
         /// </summary>
@@ -329,6 +404,7 @@ namespace KtExtensions.NetStandard
             using Stream stream = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None);
             formatter.Serialize(stream, element);
         }
+
         /// <summary>
         /// Serialize Objects into a single filename
         /// </summary>

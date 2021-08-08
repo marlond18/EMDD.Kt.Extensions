@@ -9,6 +9,40 @@
             File streaming
             </summary>
         </member>
+        <member name="M:KtExtensions.NetStandard.SimplifiedFileStream.WriteFileCSV``1(System.String,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Write CSV file
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="filePath"></param>
+            <param name="elements"></param>
+        </member>
+        <member name="M:KtExtensions.NetStandard.SimplifiedFileStream.AppendFileCSV``1(System.String,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Add item to the CSV file
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="path"></param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NetStandard.SimplifiedFileStream.WriteFileCSV``2(System.String,System.Collections.Generic.IEnumerable{``1})">
+            <summary>
+            Write CSV File using <see cref="T:CsvHelper.Configuration.ClassMap`1"/>
+            </summary>
+            <typeparam name="TMap"></typeparam>
+            <typeparam name="T"></typeparam>
+            <param name="path"></param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.NetStandard.SimplifiedFileStream.ReadFileCSV``1(System.String)">
+            <summary>
+            Read a CSV file
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="path"></param>
+        </member>
         <member name="M:KtExtensions.NetStandard.SimplifiedFileStream.WriteFileXML``1(System.String,``0)">
             <summary>
             Write File XML

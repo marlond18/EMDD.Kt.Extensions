@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Authors>Marlon D. Dumal-is</Authors>
+    <LangVersion>9.0</LangVersion>
     <Company>EMDD</Company>
     <Description>Collection of Extensions for generic C# in NetStandard</Description>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
@@ -12,7 +13,8 @@
     <RepositoryUrl>https://github.com/marlond18/Kt.Extensions.git</RepositoryUrl>
     <PackageTags>C#, NetStandard, Extensions</PackageTags>
     <RepositoryType>git</RepositoryType>
-    <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
+    <PackageReleaseNotes>Added CSV Read/Write</PackageReleaseNotes>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -25,6 +27,10 @@
     <DocumentationFile>D:\Programming Work\EMDD.Kt.Extensions\docs\EMDD.Kt.Extensions.NetStandard.xml</DocumentationFile>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="21.2.1" />
+  </ItemGroup>
+  
   <ItemGroup>
     <None Include="..\Images\emd2.png">
       <Pack>True</Pack>

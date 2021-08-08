@@ -9,6 +9,79 @@
             Collection of methods to deal with 2D array
             </summary>
         </member>
+        <member name="M:KtExtensions.Array2D.AggregateDiagonal``2(``0[0:,0:],``1,System.Func{``1,``0,System.Int32,``1})">
+            <summary>
+            Aggregate Method but using the diagonal
+            </summary>
+            <typeparam name="TOriginal"></typeparam>
+            <typeparam name="T"></typeparam>
+            <param name="mat"></param>
+            <param name="seed"></param>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.ConvertToCodeString(System.Double[0:,0:],System.String)">
+            <summary>
+            Convert to a string that can be used in code
+            </summary>
+            <param name="actual"></param>
+            <param name="name">The name of the variable</param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.Array2D.MapTo(System.Double[0:,0:],System.Double[0:,0:],System.Func{System.Double,System.Double,System.Double},System.Int32[])">
+            <summary>
+            Map <paramref name="source"/> to <paramref name="target"/> using the <paramref name="lambda"/> and <paramref name="indices"/>
+            </summary>
+            <param name="source"></param>
+            <param name="target"></param>
+            <param name="lambda">the map function, parameters are current source value, current target value </param>
+            <param name="indices">collection of the 1 based map indices</param>
+        </member>
+        <member name="M:KtExtensions.Array2D.GenerateMatrix``1(System.Func{System.Int32,System.Int32,``0},System.Int32,System.Int32)">
+            <summary>
+            Generate Matrix Using a Function
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="lambda"></param>
+            <param name="rowCount"></param>
+            <param name="colCount"></param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="lambda"/> cannot be null</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="rowCount"/> and <paramref name="colCount"/> must be greater than zero</exception>
+        </member>
+        <member name="M:KtExtensions.Array2D.GenerateDiagonalMatrix``1(System.Func{System.Int32,System.Int32,``0},System.Int32)">
+            <summary>
+            Create a Diagonal Matrix Based on Function
+            </summary>
+            <param name="lambda"></param>
+            <param name="size"> size of the square matrix</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="lambda"/> function cannot be null</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="size"/> must be greater than zero</exception>
+        </member>
+        <member name="M:KtExtensions.Array2D.CreateDiagonalMat``1(``0[])">
+            <summary>
+            Create A Diagonal Matrix Based using <paramref name="arr"/> as the diagonal values
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="arr"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="arr"/> cannot be null</exception>
+        </member>
+        <member name="M:KtExtensions.Array2D.Flatten``1(``0[0:,0:])">
+            <summary>
+            Convert a 2D matrix into an array (sequence is per row)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="mat"></param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="mat"/> cannot be null</exception>
+        </member>
+        <member name="M:KtExtensions.Array2D.FlattenByCol``1(``0[0:,0:])">
+            <summary>
+            Convert a 2D matrix into an array (sequence is per column)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="mat"></param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="mat"/> cannot be null</exception>
+        </member>
         <member name="M:KtExtensions.Array2D.All``1(``0[0:,0:],System.Func{``0,System.Boolean})">
             <summary>
             All - Extension for 2D array
@@ -569,6 +642,32 @@
             Extensions for Ienumerable
             </summary>
         </member>
+        <member name="M:KtExtensions.EnumerableExtensions.Partition``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0,System.Boolean})">
+            <summary>
+            This is a method to Partition a <paramref name="collection"/> into two separate collections, using 2 filter functions
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="collection"></param>
+            <param name="filterFirst">first filter function</param>
+            <param name="filterSecond">second filter function</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="filterFirst"/> must not be null</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="filterSecond"/> must not be null</exception>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.MinNotZero(System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Get the minimum value of <paramref name="arr"/>> that is not zero
+            </summary>
+            <param name="arr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.GetMinMaxNotZero(System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Get the Minimum and Maximum within <paramref name="arr"/> disregarding zero
+            </summary>
+            <param name="arr"></param>
+            <returns></returns>
+        </member>
         <member name="M:KtExtensions.EnumerableExtensions.HeuristicallyDetermineType(System.Collections.IList)">
             <summary>
             Get the Underlaying type of items inside an Ilist
@@ -911,6 +1010,18 @@
         <member name="M:KtExtensions.EnumerableExtensions.Fork``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
             <summary>
             Splits an ienumerable in two based on the boolean condition stated,
+            <para /> Reference:
+            <para /> Byers, M (2010,December 28) C#: Can I split an IEnumerable into two by a boolean criteria without two queries? [Online forum comment].Message to
+                   posted to https://stackoverflow.com/questions/4549339/can-i-split-an-ienumerable-into-two-by-a-boolean-criteria-without-two-queries
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="source">the Ienumerable to be split</param>
+            <param name="pred">boolean condition</param>
+            <returns>value tuple 2 two groups</returns>
+        </member>
+        <member name="M:KtExtensions.EnumerableExtensions.ForkToList``1(System.Collections.Generic.List{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Splits <paramref name="source"/> in two, based on the boolean condition stated
             <para /> Reference:
             <para /> Byers, M (2010,December 28) C#: Can I split an IEnumerable into two by a boolean criteria without two queries? [Online forum comment].Message to
                    posted to https://stackoverflow.com/questions/4549339/can-i-split-an-ienumerable-into-two-by-a-boolean-criteria-without-two-queries
